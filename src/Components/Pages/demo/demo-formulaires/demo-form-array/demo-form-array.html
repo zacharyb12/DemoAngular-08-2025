@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div formArrayName="firstNames">
+        <button type="submit">Envoyer</button>
+        <br><br>
+        <button type="button" (click)="addFirstName()">Ajouter un prénom</button>
+        <br><br>
+        <button type="button" (click)="removeFirstName()">Supprimer</button>
+      <div *ngFor="let control of firstNames.controls; let i = index">
+        <label>Prénom {{ i + 1 }} :</label>
+        <input [formControlName]="i">
+    </div>
+</div>
+
+  </form>
+  

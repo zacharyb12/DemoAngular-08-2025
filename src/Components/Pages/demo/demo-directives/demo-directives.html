@@ -1,0 +1,168 @@
+    <div class="card w-50 m-auto mt-5 text-center">
+    <h1>Directives</h1>
+    </div>
+
+<!--------------- NGIF ------------------------------------------------------->
+<div class="card w-75 m-auto mt-5 text-center">
+    <h1>NgIf</h1>
+</div>
+
+<!-- le ngif permet de gérer l'affichage de quelque chose il prend un booleen un paramètres -->
+<div class="card w-50 m-auto mt-5 text-center" *ngIf="value == 5">
+    <p>value == 5</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti reiciendis dolore tenetur cumque, voluptatem vel officia id repellat nemo assumenda impedit doloribus quia quasi eligendi molestiae quam eum laudantium a?</p>
+</div>
+
+<div class="card w-50 m-auto mt-5 text-center" *ngIf="value">
+    <p>value</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, a. Numquam quibusdam tenetur itaque omnis voluptates! Nulla debitis, eum eaque fuga iure dolores necessitatibus expedita quas explicabo perferendis neque fugit?</p>
+</div>
+
+
+
+<div class="card w-50 m-auto mt-5 text-center" *ngIf="username">
+    <p>user</p>
+    <div>
+        <p>{{username}}</p>
+        <p>{{userage}}</p>
+        <p>{{useremail}}</p>
+    </div>
+</div>
+
+<div class="card w-50 m-auto mt-5 text-center" *ngIf="!username">
+    <p>loading...</p>
+</div>
+
+<div class="card w-75 m-auto mt-5 text-center">
+    <h2>Block else</h2>
+</div>
+
+<div class="card w-50 m-auto mt-5 text-center" *ngIf="!username; else elseBlock">
+    <p>Voici l'informations si username est vide</p>
+</div>
+
+<ng-template  #elseBlock>
+    <div class="card w-50 m-auto mt-5 text-center">
+        <p>Voici l'informations si username ,n'est pas vide!!!!!!!!</p>
+    </div>
+</ng-template>
+
+<div class="card w-75 m-auto mt-5 text-center">
+    <h2>&#64;if</h2>
+</div>
+
+@if(username){
+<div class="card w-50 m-auto mt-5 text-center">
+    <p>Si la condition est remplie</p>
+</div>
+}
+@else {
+    <div class="card w-50 m-auto mt-5 text-center">
+        <p>Si la condition n'est pas remplie</p>
+    </div>
+}
+
+<div class="card w-75 m-auto mt-5 text-center">
+    <h2>Switch</h2>
+</div>
+
+<div class="card w-50 m-auto mt-5 text-center">
+
+    <div  [ngSwitch]="valeur">
+
+        <div *ngSwitchCase="6">
+            <p>la valeur est de 6</p>
+        </div>
+        
+        <div *ngSwitchCase="5">
+            <p>la valeur est de 5 </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!--------------- NGFOR ------------------------------------------------------->
+<div class="card w-75 m-auto mt-5 text-center">
+    <h1>NgFor</h1>
+</div>
+
+<div *ngFor="let name of maList" class="card w-50 m-auto mt-5 text-center">
+    <p>{{name}}</p>
+</div>
+
+<div class="card w-75 m-auto mt-5 text-center">
+    <h1>&#64;For</h1>
+</div>
+
+@for(p of productList; track p.id){
+    <div class="bg-white rounded-3 w-25 m-auto mt-5 text-center d-flex">
+        <div>
+            <h3 class="p-2 m-auto text-center">{{p.name}}</h3>
+            <p class="p-2 m-auto mt-2 text-center">{{p.price}}€</p>
+            <p class="p-2 m-auto mt-2 text-end"> Id produit : {{p.id}} </p>
+        </div>
+        <div class="p-3 ">
+            <img [src]="p.img" alt="image" width="200">
+            <div>
+                <button class="btn btn-outline-success">add</button>
+                <button class="btn btn-outline-danger">buy</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="card w-75 m-auto mt-5 text-center">
+    <h1>NgFor</h1>
+</div>
+
+<div class="bg-white rounded-3 w-25 m-auto mt-5 text-center " *ngFor="let p of productList">
+    <div>
+        <h3 class="p-2 m-auto text-center">{{p.name}}</h3>
+        <p class="p-2 m-auto mt-2 text-center">{{p.price}}€</p>
+        <p class="p-2 m-auto mt-2 text-end"> Id produit : {{p.id}} </p>
+    </div>
+    <div class="p-3 ">
+        <img [src]="p.img" alt="image" width="200">
+        <div>
+            <button class="btn btn-outline-success">add</button>
+            <button class="btn btn-outline-danger">buy</button>
+        </div>
+    </div>
+    
+</div>
+
+
+<!--------------- NGCLASS ------------------------------------------------------->
+<div class="card w-75 m-auto mt-5 text-center">
+    <h1>NgClass</h1>
+</div>
+
+<div class="card w-25 m-auto mt-5 text-center">
+    <h1 [ngClass]="{'text-danger' : isVisible,'text-end' : isVisible}">NgClass Demo</h1>
+    <button class="btn btn-outline-danger" (click)="toggleValue()">change</button>
+</div>
+
+<!--------------- NGSTYLE ------------------------------------------------------->
+<div class="card w-75 m-auto mt-5 text-center">
+    <h1>NgStyle</h1>
+</div>
+
+<div class="card w-25 m-auto mt-5 text-center p-3">
+    <h1 [ngStyle]="getStyles()">NGStyle</h1>
+        <button class="btn btn-outline-danger" (click)="toggleValue()">change</button>
+    </div>
+
+
+    <!--------------- Directive perso ------------------------------------------------------->
+<div class="card w-75 m-auto mt-5 text-center">
+    <h1>Directive Perso</h1>
+</div>
+
+<div class="card w-25 m-auto mt-5 text-center p-3">
+    <div Changecolor>
+        <p class="p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem eos, pariatur accusamus nulla, animi fugit velit nemo alias sed quisquam qui adipisci ab, architecto hic ad numquam magnam molestiae provident!</p>
+    </div>
+</div>

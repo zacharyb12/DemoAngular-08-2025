@@ -1,0 +1,7 @@
+<form (ngSubmit)="onSubmit()">
+    <label for="name">Nom :</label>
+    <input id="name" type="text" [formControl]="nameControl">
+    <button type="submit">Envoyer</button>
+  </form>
+  
+  <p>Valeur en temps réel : {{ nameControl.value }}</p>

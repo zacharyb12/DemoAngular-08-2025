@@ -1,0 +1,9 @@
+<div>
+    <h2>this is the child</h2>
+    <p>value from parent : {{valueFromParent}}</p>
+
+    <div>
+        <input  type="number" [(ngModel)]="valueFromChild" />
+        <button (click)="sendValue()">Send value to parent</button>
+      </div>
+</div>

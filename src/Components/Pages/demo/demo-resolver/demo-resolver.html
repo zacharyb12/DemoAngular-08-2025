@@ -1,0 +1,11 @@
+<div *ngIf="item" class="card w-50 m-auto text-center">
+
+    <div *ngIf="item">
+        <h2>name :{{item.name}}</h2>
+        <p> quantity{{item.quantity}}</p>
+        <p>id : {{item.id}}</p>
+    </div>
+    
+    <a class="btn btn-sm btn-outline-primary m-auto mb-2" routerLink="/demo/routing-list">accueil</a>
+
+</div>

@@ -1,0 +1,130 @@
+<section class=" w-75 ms-1 me-auto">
+    
+    <div class="card w-75 shadow m-auto mt-5 text-center p-3">
+    <h1 class="text-center mt-5 w-75 m-auto">Demo 2 : Les Pipes</h1>
+        <p class="mt-5">Propre à Angular, ils permettent de formatter les données à l'affichage.</p>
+        <h3>Les pipes déjà existants :</h3>
+        <p>Plusieurs pipes existent déjà de base. Afin de pouvoir les utiliser, votre composant aura besoin de les importer soit individuellement via leur nom, soit tous d'un coup avec le CommonModule. </p><br>
+    </div>
+    
+    <div class="card w-75 shadow m-auto mt-5 text-center">
+        <h4>Les pipes string</h4>
+        <br>
+        <div class="flex-row">
+        <div>
+
+            <p>Sans pipe : {{ bonjour }}</p>
+            <p>En majuscule : {{ bonjour | uppercase }} </p>
+            <p>En minuscule : {{ bonjour | lowercase }} </p>
+            <p>Première lettre en majuscule : {{ bonjour | titlecase }} </p>
+
+        </div>
+        
+        <img class="shadow card m-auto mb-2" src="images/pipe-string.png" alt="">
+
+    </div>
+</div>
+ 
+    <div class="card w-75 shadow m-auto mt-5 text-center p-3">
+        <h4>Les pipes number</h4>
+        <br>
+
+        <div class="flex-row">
+        <div>
+
+            <p>Sans pipe : {{ prix }} €</p>
+            <!-- 
+            Le pipe number attend un paramètre 'X.Y-Z' où 
+             X est le nombre minimum de chiffre attendus avant la virgule. 
+             Y est le minimum attendu après la virgule et 
+             Z est le maximum attendu après la virgule 
+             -->
+            <p>Pipe pour arrondir (sans param): {{ prix | number }} €</p>
+            <p>Pipe pour arrondir (avec param): {{ prix | number : '0.0-2' }} €</p>
+
+        </div>
+        <img class="shadow card m-auto mb-2 w-75"  src="images/pipe-number.png" alt="">
+
+    </div>
+</div>
+    
+
+    <div class="card w-75 shadow m-auto mt-5 text-center p-3">
+        <h4>Les pipes de monnaie</h4>
+        <br>
+
+        <div class="flex-row">
+        <div>
+
+            <p>Sans pipe: {{prix}}</p>
+            <p>Pipe de monnaie (sans param) {{ prix | currency }} </p>
+            <p>Pipe de monnaie (avec param) {{ prix | currency : 'EUR' }} </p>
+
+        </div>
+                <img class="shadow card m-auto mb-2 w-75" src="images/pipe-monnaie.png" alt="">
+
+    </div>
+</div>
+     
+    <div class="card w-75 shadow m-auto mt-5 text-center p-3">
+        <h4>Les pipes de date</h4>
+        <br>
+
+        <div class="flex-row">
+        <div>
+
+            <p>Sans pipe : {{ ajd }} </p>
+            <p>Avec pipe (sans param) : {{ ajd | date }}</p>
+            <p>Avec pipe (avec param basique): {{ ajd | date : 'dd/MM/yyyy' }}</p>
+
+        </div>
+                <img class="shadow card m-auto mb-2  w-75" src="images/pipe-date.png" alt="">
+
+    </div>
+    </div>
+
+    <div class="card w-75 shadow m-auto mt-5 text-center p-3">
+        <h4>Le pipe json</h4>
+        <br>
+
+        <div class="flex-row">
+            <div>
+
+                <!-- Utile pour du debug -->
+                <p>Sans : {{ personne }}</p>
+                <p>Avec : {{ personne | json }}</p>
+
+        </div>
+
+                <img class="shadow card m-auto mb-2" src="images/pipe-json.png" alt="">
+
+    </div>
+</div>
+
+    <div class="card w-75 shadow m-auto mt-5 text-center p-3">
+        <h3>Créer ses propres pipes : </h3>
+        <br>
+
+        <p>Il faudra faire la commande <b><i>ng g p nomPipe</i></b> pour créer son propre pipe. Ne pas oublier de l'importer dans les imports du composant pour l'utiliser !</p><br>
+        <div class="flex-row">
+
+            <input type="text" [(ngModel)]="pipePerso">
+            
+            <p> Résultat émoji : {{ pipePerso | emojiFormat }} </p>
+            
+            <input type="number" [(ngModel)]="tempToFahrenheit" placeholder="Température en celcius">
+            <p>Résultat Fahrenheit : {{ tempToFahrenheit | tofahrenheit }} °F</p>
+
+            <input type="number" [(ngModel)]="tempToCelsius" placeholder="Température en Fahrenheit">
+            <p>Résultat celcius : {{ tempToCelsius | tocelcius }} °C</p>
+    </div>
+        <p>Emoji</p>
+        <img class="shadow card m-auto mb-2 w-50" src="images/pipe-perso.png" alt="">
+        <p>To farhenheit</p>
+        <img class="shadow card m-auto mb-2 w-50" src="images/pipe-perso-to-f.png" alt="">
+        <p>To celcius</p>
+            <img class="shadow card m-auto mb-2 w-50" src="images/pipe-perso-to-c.png" alt="">
+</div>
+
+    
+</section>

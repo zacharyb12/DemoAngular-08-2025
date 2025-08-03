@@ -1,0 +1,23 @@
+<div class="card bg-light m-auto text-center">
+    <h1>Formulaire avec le formGroup</h1>
+
+    <form [formGroup]="formulaire" (ngSubmit)="onSubmit()" class="p-3 w-50 m-auto">
+        <div class="form-group mb-3 w-50 m-auto">
+          <label for="name">Nom</label>
+          <input type="text" id="name" class="form-control" placeholder="Votre nom" formControlName="name" />
+        </div>
+      
+        <div class="form-group mb-3 w-50 m-auto">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control" placeholder="Votre email" formControlName="email" />
+        </div>
+      
+        <div class="form-group mb-3 w-50 m-auto">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" class="form-control" placeholder="Votre mot de passe" formControlName="password" />
+        </div>
+      
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+      
+</div>

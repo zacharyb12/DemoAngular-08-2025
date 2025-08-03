@@ -1,0 +1,13 @@
+<div class="card w-50 m-auto text-center">
+    <h1>Product list service</h1>
+</div>
+
+<div class="card w-50 m-auto text-center">
+    <div *ngFor="let product of list">
+        <p>{{product.name}}</p>
+        <p>{{product.quantity}}</p>
+        <button (click)="addQuantity(product.id)">+</button>
+        <button (click)="removeQuantity(product.id)">-</button>
+        <button (click)="remove(product.id)">Delete</button>
+    </div>
+</div>

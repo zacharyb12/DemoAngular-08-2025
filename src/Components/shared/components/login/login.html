@@ -1,0 +1,26 @@
+<div>
+    <button *ngIf="!isOpen && !isLogged()" type="button" class="btn btn-primary" (click)="openForm()">Se connecter</button>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="isOpen">
+        <div class="mb-3 text-center">
+            <label for="email" class="form-label">Nom d'utilisateur</label>
+            <br />
+            <input type="email" formControlName="email" />
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              <small class="text-danger" *ngIf="loginForm.get('email')?.errors?.['required']">Email requis</small>
+              <small class="text-danger" *ngIf="loginForm.get('email')?.errors?.['email']">Format invalide</small>
+            </div>        </div>
+            <div class="mb-3 text-center">
+              <label for="password" class="form-label">Mot de passe</label>
+              <br />
+            <input type="password" formControlName="password" />
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <small class="text-danger" *ngIf="loginForm.get('password')?.errors?.['required']">Mot de passe requis</small>
+              <small class="text-danger" *ngIf="loginForm.get('password')?.errors?.['minlength']">6 caractères minimum</small>
+            </div>        </div>
+        <button type="submit"  class="btn btn-primary">Se connecter</button>
+        <a class="btn btn-primary" routerLink="new-user" >S'inscrire</a>
+        </form>
+
+    <button *ngIf="isLogged()" type="button" class="btn btn-danger" (click)="logout()">Se Déconnecter</button>
+    Role:{{userRole()}}
+</div>
