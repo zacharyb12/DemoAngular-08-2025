@@ -4,3 +4,18 @@
 
 <button (click)="startCounter()">Démarrer</button>
 <button (click)="stopCounter()">Arrêter</button>
+
+
+<h2>Demo Observable objet</h2>
+
+<button (click)="getShoppingItem()">Start</button>
+<div class="d-flex gap-2 row justify-content-evenly">
+    <div *ngFor="let product of products" class="card m-3 w-25">
+        <!-- Display product properties here, e.g.: -->
+        {{ product.id }}
+        {{ product.name }}
+        {{ product.price }}
+        <img [src]="product.img" [alt]="product.name" width="300">
+    </div>
+</div>
+

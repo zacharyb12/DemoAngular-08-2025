@@ -8,9 +8,7 @@ export class Changecolor {
  constructor(
     private el : ElementRef,
     private renderer : Renderer2
-  ) { 
-
-  }
+  ) {  }
 
   @HostListener('mouseenter') onMouseover(){
  this.renderer.setStyle(this.el.nativeElement, 'background-color', 'red');
@@ -21,3 +19,4 @@ export class Changecolor {
   }
 
 }
+

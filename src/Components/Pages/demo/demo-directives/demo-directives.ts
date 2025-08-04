@@ -56,7 +56,7 @@ valeur = 5;
     },
     {
       id : 2,
-      name : "Samsung",
+      name : "Nokia",
       price : 800,
       img : "https://cdn.pixabay.com/photo/2025/05/07/18/46/lake-9585821_1280.jpg"
     },
