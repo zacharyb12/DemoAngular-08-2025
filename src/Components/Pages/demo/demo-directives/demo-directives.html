@@ -10,14 +10,13 @@
 <!-- le ngif permet de gérer l'affichage de quelque chose il prend un booleen un paramètres -->
 <div class="card w-50 m-auto mt-5 text-center" *ngIf="value == 5">
     <p>value == 5</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti reiciendis dolore tenetur cumque, voluptatem vel officia id repellat nemo assumenda impedit doloribus quia quasi eligendi molestiae quam eum laudantium a?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
 </div>
 
 <div class="card w-50 m-auto mt-5 text-center" *ngIf="value">
     <p>value</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, a. Numquam quibusdam tenetur itaque omnis voluptates! Nulla debitis, eum eaque fuga iure dolores necessitatibus expedita quas explicabo perferendis neque fugit?</p>
 </div>
-
 
 
 <div class="card w-50 m-auto mt-5 text-center" *ngIf="username">
@@ -29,9 +28,19 @@
     </div>
 </div>
 
+
 <div class="card w-50 m-auto mt-5 text-center" *ngIf="!username">
     <p>loading...</p>
 </div>
+<!-- If  Images-->
+<div class="card m-auto mt-1">
+    <div>
+        <h3 class="text-center">Directives If</h3>
+        <img src="images/directives-ngif.png" alt="exemple" width="450" height="auto" class="img-fluid rounded card ms-1 m-2">
+    </div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
 <div class="card w-75 m-auto mt-5 text-center">
     <h2>Block else</h2>
@@ -47,6 +56,16 @@
     </div>
 </ng-template>
 
+<!-- Else-Block  Images-->
+<div class="card m-auto mt-1">
+    <div>
+        <h3 class="text-center">Directives If</h3>
+        <img src="images/directives-ngif-else.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card ms-1">
+    </div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+
 <div class="card w-75 m-auto mt-5 text-center">
     <h2>&#64;if</h2>
 </div>
@@ -61,6 +80,15 @@
         <p>Si la condition n'est pas remplie</p>
     </div>
 }
+
+<!-- Else-Block  Images-->
+<div class="card m-auto mt-1">
+    <div>
+        <h3 class="text-center">Directives If</h3>
+        <img src="images/directives-ngif-else-2.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card ms-1">
+    </div>
+</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
 <div class="card w-75 m-auto mt-5 text-center">
     <h2>Switch</h2>
@@ -79,9 +107,34 @@
         </div>
 
     </div>
-
 </div>
 
+<!-- Else-Block  Images-->
+<div class="card m-auto mt-1">
+    <div>
+        <h3 class="text-center">Directives If</h3>
+        <img src="images/directives-switch.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card ms-1">
+    </div>
+</div>
+
+<div class="card w-50 m-auto mt-5 text-center">
+
+        @switch(valeur){
+            @case(6){
+                <p>la valeur est de 6 </p>
+            }
+            @case(5){
+                <p>la valeur est de 5</p>
+            }
+        }
+</div>
+<!-- Else-Block  Images-->
+<div class="card m-auto mt-1">
+    <div>
+        <h3 class="text-center">Directives If</h3>
+        <img src="images/directives-switch-2.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card ms-1">
+    </div>
+</div>
 
 
 <!--------------- NGFOR ------------------------------------------------------->
@@ -154,7 +207,7 @@
     <h1 [ngStyle]="getStyles()">NGStyle</h1>
         <button class="btn btn-outline-danger" (click)="toggleValue()">change</button>
     </div>
-
+    
 
     <!--------------- Directive perso ------------------------------------------------------->
 <div class="card w-75 m-auto mt-5 text-center">
@@ -166,3 +219,5 @@
         <p class="p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem eos, pariatur accusamus nulla, animi fugit velit nemo alias sed quisquam qui adipisci ab, architecto hic ad numquam magnam molestiae provident!</p>
     </div>
 </div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
