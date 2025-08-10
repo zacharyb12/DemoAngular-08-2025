@@ -12,5 +12,5 @@ import { Navbar } from "../Components/shared/components/navbar/navbar";
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'ShopManager';
+
 }

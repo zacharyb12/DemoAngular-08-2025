@@ -28,8 +28,8 @@ getProducts(){
   this.list = this.service.getProducts();
 }
 
-add(){
-
+add(product: string){
+this.service.addItem(product);
 }
 
 remove(id : number){

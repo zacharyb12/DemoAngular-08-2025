@@ -71,6 +71,13 @@ export class Productservice {
   }
 
 
+  // Observables demonstration
+
+  // les observables sont utilisés pour les flux de données asynchrones
+  // ici, nous allons simuler un service qui retourne des données
+  // de manière asynchrone 
+
+
     items : ShoppingItem[] = [
     { id: 1, name: 'Milk', quantity: 2 },
     { id: 2, name: 'Bread', quantity: 1 },
@@ -80,11 +87,14 @@ export class Productservice {
   ]
 
 
-  getItems() {
+  getItems() : ShoppingItem[] {
     return this.items;
+  }  
+  getItemsObservable() : Observable<ShoppingItem[]> {
+    return of(this.items);
   }
 
-  getById(id : number) : ShoppingItem | null {
+  getById(id : number) :ShoppingItem | null {
     return this.items.find((item) => item.id === id) || null;
 
   }

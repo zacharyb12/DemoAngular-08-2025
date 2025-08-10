@@ -2,12 +2,14 @@
 
   <img [src]="dogString()" alt="dog"  width="500"/>
   <button (click)="getDog()">Get a Dog</button>
+
   
 
   <h2>Random Dog</h2>
 <img *ngIf="dog()" [src]="dog()" alt="dog" width="300" />
 <br>
 <button (click)="loadRandomDog()">Charger un chien aléatoire</button>
+
 
 <h2>Dog par race</h2>
 <select [(ngModel)]="selectedBreed">
@@ -17,6 +19,8 @@
 <br>
 <img *ngIf="breedDog()" [src]="breedDog()" alt="breed dog" width="300" />
 
+
+
 <h2>Images de la race sélectionnée</h2>
 <button (click)="loadBreedImages()">Charger toutes les images</button>
 <div *ngIf="breedImages().length">
@@ -24,6 +28,8 @@
     <img [src]="img" width="100" height="100" />
   </div>
 </div>
+
+
 
 <h2>Envoyer un chien (POST)</h2>
 <input type="text" [(ngModel)]="dogToPost" placeholder="URL d'un chien" />
@@ -33,5 +39,6 @@
     {{ postStatus() ? 'Succès' : 'Échec' }} de l'envoi
   </span>
 </div>
+
 
 </div>

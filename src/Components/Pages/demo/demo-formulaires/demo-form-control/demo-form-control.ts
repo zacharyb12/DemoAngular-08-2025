@@ -11,9 +11,13 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './demo-form-control.css'
 })
 export class DemoFormControl {
-  nameControl = new FormControl(''); // FormControl avec valeur par défaut vide
 
+  // FormControl avec valeur par défaut vide
+  nameControl = new FormControl(''); 
+
+  
   onSubmit() {
     console.log('Valeur du champ:', this.nameControl.value);
   }
+
 }

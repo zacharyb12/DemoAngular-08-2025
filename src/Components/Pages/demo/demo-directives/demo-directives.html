@@ -1,223 +1,371 @@
+<div class="w-75 ms-5 m-auto p-5">
+
     <div class="card w-50 m-auto mt-5 text-center">
-    <h1>Directives</h1>
+        <h1>Directives</h1>
     </div>
 
-<!--------------- NGIF ------------------------------------------------------->
-<div class="card w-75 m-auto mt-5 text-center">
-    <h1>NgIf</h1>
-</div>
+    
+    <!--------------- NGIF 1------------------------------------------------------->
+    <h1 class="card w-25 m-auto mt-5 text-center">NgIf</h1>
 
-<!-- le ngif permet de gérer l'affichage de quelque chose il prend un booleen un paramètres -->
-<div class="card w-50 m-auto mt-5 text-center" *ngIf="value == 5">
-    <p>value == 5</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-</div>
-
-<div class="card w-50 m-auto mt-5 text-center" *ngIf="value">
-    <p>value</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, a. Numquam quibusdam tenetur itaque omnis voluptates! Nulla debitis, eum eaque fuga iure dolores necessitatibus expedita quas explicabo perferendis neque fugit?</p>
-</div>
-
-
-<div class="card w-50 m-auto mt-5 text-center" *ngIf="username">
-    <p>user</p>
-    <div>
-        <p>{{username}}</p>
-        <p>{{userage}}</p>
-        <p>{{useremail}}</p>
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            <strong>La directive *ngIf</strong>
+            <br>
+            permet d’afficher ou masquer un élément HTML selon une condition.
+            <br>
+            Si la condition est vraie, l’élément s’affiche,
+            <br>
+            sinon, il est complètement retiré du DOM.
+            <br>
+            C’est une manière simple de contrôler dynamiquement ce que l’utilisateur voit à l’écran
+        </p>
+        <img src="images/directives-if-1.png" width="600" class="m-auto p-3 " alt="directives-if">
     </div>
-</div>
+
+    <div class="card w-75 m-auto mt-3  text-center">
+        <div class="card w-50 m-auto mt-5 text-center" *ngIf="value == 5">
+            <p>value == 5</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. ?</p>
+        </div>
+
+        <div class="card w-50 m-auto mt-5 mb-5 text-center" *ngIf="value">
+            <p>value</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. ?</p>
+        </div>
 
 
-<div class="card w-50 m-auto mt-5 text-center" *ngIf="!username">
-    <p>loading...</p>
-</div>
-<!-- If  Images-->
-<div class="card m-auto mt-1">
-    <div>
-        <h3 class="text-center">Directives If</h3>
-        <img src="images/directives-ngif.png" alt="exemple" width="450" height="auto" class="img-fluid rounded card ms-1 m-2">
     </div>
-</div>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-<div class="card w-75 m-auto mt-5 text-center">
-    <h2>Block else</h2>
-</div>
 
-<div class="card w-50 m-auto mt-5 text-center" *ngIf="!username; else elseBlock">
-    <p>Voici l'informations si username est vide</p>
-</div>
+    <!--------------- NG IF 2------------------------------------------------------->
+    <h1 class="card w-25 m-auto mt-5 text-center">NgIf-2</h1>
 
-<ng-template  #elseBlock>
-    <div class="card w-50 m-auto mt-5 text-center">
-        <p>Voici l'informations si username ,n'est pas vide!!!!!!!!</p>
+    <div class="card w-75 m-auto mt-3  text-center p-3">
+        <p>
+            *ngIf permet d'afficher un bloc si une condition est vraie.
+            <br>
+
+            Ici, on affiche les informations de l'utilisateur uniquement si username existe.
+            <br>
+
+            Sinon, on montre un message "loading...".
+            <br>
+
+            Cela permet d'attendre que les données soient prêtes
+            <br>
+
+            avant d'afficher quoi que ce soit
+        </p>
+        <img src="images/directives-if-else-1.png" width="600" alt="directives-if" class="m-auto p-3 ">
     </div>
-</ng-template>
 
-<!-- Else-Block  Images-->
-<div class="card m-auto mt-1">
-    <div>
-        <h3 class="text-center">Directives If</h3>
-        <img src="images/directives-ngif-else.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card ms-1">
+    <div class="card w-75 m-auto mt-3  text-center">
+        <div class="card w-50 m-auto mt-5 mb-5 text-center" *ngIf="username">
+            <p>user</p>
+            <div>
+                <p>{{username}}</p>
+                <p>{{userage}}</p>
+                <p>{{useremail}}</p>
+            </div>
+        </div>
+
+        <div class="card w-50 m-auto mt-5 text-center" *ngIf="!username">
+            <p>loading...</p>
+        </div>
     </div>
-</div>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-<div class="card w-75 m-auto mt-5 text-center">
-    <h2>&#64;if</h2>
-</div>
 
-@if(username){
-<div class="card w-50 m-auto mt-5 text-center">
-    <p>Si la condition est remplie</p>
-</div>
-}
-@else {
+    <!--------------- NG IF ELSE TEMPLATE------------------------------------------------------->
+    <h2 class="card w-25 m-auto mt-5 text-center">Block else</h2>
+
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            *ngIf peut être utilisé avec else
+            <br>
+
+            pour afficher un autre bloc quand la condition est fausse,
+            <br>
+
+            grâce à un -ng-template- .
+            <br>
+
+            C'est utile pour alterner entre deux contenus sans répéter la logique
+        </p>
+        <img src="images/directives-if-else-Template.png" width="600" alt="directives-if" class="m-auto p-3 ">
+    </div>
+
+    <div class="card w-50 m-auto mt-lg-3 text-center" *ngIf="!username; else elseBlock">
+        <p>Voici l'informations si username est vide</p>
+        <img src="images/directives-if-else-Template.png" width="600" alt="directives-if" class="m-auto p-3 ">
+    </div>
+
+    <ng-template #elseBlock>
+        <div class="card w-75 m-auto mt-3 text-center">
+            <p>Voici l'informations si username ,n'est pas vide!!!!!!!!</p>
+        </div>
+    </ng-template>
+
+
+
+    <!--------------- NG IF ELSE 2------------------------------------------------------->
+    <h2 class="card w-25 m-auto mt-5 text-center">&#64;if</h2>
+
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            Depuis Angular v17, &#64;if et &#64;else
+            <br>
+
+            offrent une syntaxe plus lisible et moderne pour gérer des blocs conditionnels,
+            <br>
+
+            comme en JavaScript classique.
+            <br>
+
+            Cela rend le code plus clair, surtout avec plusieurs conditions
+        </p>
+        <img src="images/directives-@if-else.png" width="600" alt="directives-if" class="m-auto p-3 ">
+    </div>
+
+    @if(username){
+    <div class="card w-50 m-auto mt-3 text-center">
+        <p>Si la condition est remplie</p>
+    </div>
+    }
+    @else {
     <div class="card w-50 m-auto mt-5 text-center">
         <p>Si la condition n'est pas remplie</p>
     </div>
-}
+    }
 
-<!-- Else-Block  Images-->
-<div class="card m-auto mt-1">
-    <div>
-        <h3 class="text-center">Directives If</h3>
-        <img src="images/directives-ngif-else-2.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card ms-1">
+
+
+    <!--------------- NG SWITCH------------------------------------------------------->
+    <h2 class="card w-25 m-auto mt-5 text-center">Switch</h2>
+
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            ngSwitch est utilisé pour tester plusieurs cas possibles selon une valeur donnée.
+            <br>
+
+            Chaque *ngSwitchCase correspond à une valeur spécifique.
+            <br>
+
+            Cela remplace efficacement une suite de *ngIf
+        </p>
+        <img src="images/directives-switch-1.png" width="600" alt="directives-if" class="m-auto p-3 ">
     </div>
-</div>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-<div class="card w-75 m-auto mt-5 text-center">
-    <h2>Switch</h2>
-</div>
+    <div class="card w-50 m-auto mt-3 text-center">
 
-<div class="card w-50 m-auto mt-5 text-center">
+        <div [ngSwitch]="valeur">
+            <div *ngSwitchCase="6">
+                <p>la valeur est de 6</p>
+            </div>
+            <div *ngSwitchCase="5">
+                <p>la valeur est de 5 </p>
+            </div>
+        </div>
 
-    <div  [ngSwitch]="valeur">
+    </div>
 
-        <div *ngSwitchCase="6">
+
+
+
+    <!--------------- NG SWITCH-2------------------------------------------------------->
+    <h2 class="card w-25 m-auto mt-5 text-center">Switch-2</h2>
+
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>&#64;switch, introduit avec Angular v17,
+            <br>
+            permet d’écrire des conditions multiples de manière plus fluide et claire,
+            <br>
+            similaire à switch/case en TypeScript.
+            <br>
+            Idéal pour rendre le code plus moderne et facile à maintenir
+        </p>
+        <img src="images/directives-switch-2.png" width="600" alt="directives-if" class="m-auto p-3 ">
+    </div>
+
+    <div class="card w-50 m-auto mt-3 text-center">
+
+        @switch (valeur) {
+        @case(5) {
+        <div>
             <p>la valeur est de 6</p>
         </div>
-        
-        <div *ngSwitchCase="5">
+        }
+
+        @case(6){
+        <div>
             <p>la valeur est de 5 </p>
+        </div>
+        }
+        }
+
+    </div>
+
+
+
+
+
+    <!--------------- NGFOR ------------------------------------------------------->
+    <div class="card w-25 m-auto mt-5 text-center">
+        <h1>NgFor</h1>
+    </div>
+
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            *ngFor sert à parcourir une liste et afficher chaque élément.
+            <br>
+
+            On peut itérer sur des tableaux, comme une liste de noms,
+            <br>
+
+            pour afficher dynamiquement leur contenu dans la page HTML
+        </p>
+        <img src="images/directives-for-1.png" width="600" alt="directives-if" class="m-auto p-3 ">
+    </div>
+
+    <div class="card w-50 m-auto mt-3 text-center">
+
+        <div *ngFor="let name of maList" class="w-50 m-auto mt-3 text-center">
+            <p>{{name}}</p>
         </div>
 
     </div>
-</div>
 
-<!-- Else-Block  Images-->
-<div class="card m-auto mt-1">
-    <div>
-        <h3 class="text-center">Directives If</h3>
-        <img src="images/directives-switch.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card ms-1">
+
+
+    <!--------------- NGFOR ------------------------------------------------------->
+    <div class="card w-25 m-auto mt-5 text-center">
+        <h1>&#64;For</h1>
     </div>
-</div>
 
-<div class="card w-50 m-auto mt-5 text-center">
 
-        @switch(valeur){
-            @case(6){
-                <p>la valeur est de 6 </p>
-            }
-            @case(5){
-                <p>la valeur est de 5</p>
-            }
-        }
-</div>
-<!-- Else-Block  Images-->
-<div class="card m-auto mt-1">
-    <div>
-        <h3 class="text-center">Directives If</h3>
-        <img src="images/directives-switch-2.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card ms-1">
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            &#64;for (Angular 17+)
+            &#64;for est une nouvelle syntaxe plus claire pour faire des boucles,
+            <br>
+
+            avec un système de track by intégré.
+            <br>
+
+            Cela améliore la performance et la lisibilité du code,
+            <br>
+
+            surtout avec des objets complexes
+        </p>
+        <img src="images/directives-@for.png" width="600" alt="directives-if" class="m-auto p-3 ">
     </div>
-</div>
 
-
-<!--------------- NGFOR ------------------------------------------------------->
-<div class="card w-75 m-auto mt-5 text-center">
-    <h1>NgFor</h1>
-</div>
-
-<div *ngFor="let name of maList" class="card w-50 m-auto mt-5 text-center">
-    <p>{{name}}</p>
-</div>
-
-<div class="card w-75 m-auto mt-5 text-center">
-    <h1>&#64;For</h1>
-</div>
-
-@for(p of productList; track p.id){
-    <div class="bg-white rounded-3 w-25 m-auto mt-5 text-center d-flex">
-        <div>
+    @for(p of productList; track p.id){
+    <div class="bg-white rounded-3 w-50 m-auto mt-3 text-center d-flex">
+        <div class="p-3">
             <h3 class="p-2 m-auto text-center">{{p.name}}</h3>
             <p class="p-2 m-auto mt-2 text-center">{{p.price}}€</p>
             <p class="p-2 m-auto mt-2 text-end"> Id produit : {{p.id}} </p>
         </div>
-        <div class="p-3 ">
-            <img [src]="p.img" alt="image" width="200">
-            <div>
+        <div class="p-3">
+            <img [src]="p.img" alt="image" width="250" class="rounded ">
+            <div class="p-3 justify-content-evenly d-flex">
                 <button class="btn btn-outline-success">add</button>
                 <button class="btn btn-outline-danger">buy</button>
             </div>
         </div>
     </div>
-}
+    }
 
-<div class="card w-75 m-auto mt-5 text-center">
-    <h1>NgFor</h1>
-</div>
 
-<div class="bg-white rounded-3 w-25 m-auto mt-5 text-center " *ngFor="let p of productList">
-    <div>
-        <h3 class="p-2 m-auto text-center">{{p.name}}</h3>
-        <p class="p-2 m-auto mt-2 text-center">{{p.price}}€</p>
-        <p class="p-2 m-auto mt-2 text-end"> Id produit : {{p.id}} </p>
+    <!--------------- NGCLASS ------------------------------------------------------->
+    <div class="card w-25 m-auto mt-5 text-center">
+        <h1>NgClass</h1>
     </div>
-    <div class="p-3 ">
-        <img [src]="p.img" alt="image" width="200">
-        <div>
-            <button class="btn btn-outline-success">add</button>
-            <button class="btn btn-outline-danger">buy</button>
-        </div>
+
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            ngClass permet d’ajouter ou de retirer des classes CSS dynamiquement selon des conditions.
+            <br>
+
+            Cela permet de styliser un élément selon l’état d'une variable (ex: erreur, succès...)
+        </p>
+        <img src="images/directives-ngclass.png" width="600" alt="directives-if" class="m-auto p-3 ">
     </div>
-    
-</div>
 
+    <div class="card w-50 m-auto mt-5 text-center p-3">
 
-<!--------------- NGCLASS ------------------------------------------------------->
-<div class="card w-75 m-auto mt-5 text-center">
-    <h1>NgClass</h1>
-</div>
-
-<div class="card w-25 m-auto mt-5 text-center">
-    <h1 [ngClass]="{'text-danger' : isVisible,'text-end' : isVisible}">NgClass Demo</h1>
-    <button class="btn btn-outline-danger" (click)="toggleValue()">change</button>
-</div>
-
-<!--------------- NGSTYLE ------------------------------------------------------->
-<div class="card w-75 m-auto mt-5 text-center">
-    <h1>NgStyle</h1>
-</div>
-
-<div class="card w-25 m-auto mt-5 text-center p-3">
-    <h1 [ngStyle]="getStyles()">NGStyle</h1>
+        <h1 [ngClass]="{'text-danger' : isVisible,'text-end' : isVisible}">NgClass Demo</h1>
         <button class="btn btn-outline-danger" (click)="toggleValue()">change</button>
+
     </div>
-    
+
+
+
+    <!--------------- NGSTYLE ------------------------------------------------------->
+    <div class="card w-25 m-auto mt-5 text-center">
+        <h1>NgStyle</h1>
+    </div>
+
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            ngStyle permet d’appliquer des styles en ligne dynamiquement,
+            <br>
+
+            selon les données du composant.
+            <br>
+
+            C’est très utile pour adapter le style d’un élément en fonction
+            <br>
+
+            d’une logique ou d’une action utilisateur
+        </p>
+        <img src="images/directives-ngstyle.png" width="600" alt="directives-if" class="m-auto p-3 ">
+    </div>
+
+    <div class="card w-75 m-auto mt-5 text-center p-3">
+
+        <h1 [ngStyle]="getStyles()">NGStyle</h1>
+        <button class="btn btn-outline-danger" (click)="toggleValue()">change</button>
+
+    </div>
+
+
+
 
     <!--------------- Directive perso ------------------------------------------------------->
-<div class="card w-75 m-auto mt-5 text-center">
-    <h1>Directive Perso</h1>
-</div>
-
-<div class="card w-25 m-auto mt-5 text-center p-3">
-    <div Changecolor>
-        <p class="p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem eos, pariatur accusamus nulla, animi fugit velit nemo alias sed quisquam qui adipisci ab, architecto hic ad numquam magnam molestiae provident!</p>
+    <div class="card w-25 m-auto mt-5 text-center">
+        <h1>Directive Perso</h1>
     </div>
+
+    <div class="card w-75 m-auto mt-3 text-center p-3">
+        <p>
+            Une directive personnalisée permet d'ajouter des comportements réutilisables à des éléments HTML.
+            <br>
+
+            Ici, la directive Changecolor change automatiquement la couleur du texte,
+            <br>
+
+            sans modifier le code HTML principal
+        </p>
+        <img src="images/directives-perso.png" width="600" alt="directives-if" class="m-auto p-3 ">
+        <img src="images/directives-perso-2.png" width="600" alt="directives-if" class="m-auto p-3 ">
+    </div>
+
+    <div class="card w-50 m-auto mt-5 text-center p-3 mb-5">
+
+        <div Changecolor>
+            <p class="p-3">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Rem eos, pariatur accusamus nulla,animi fugit velit
+                nemo alias sed quisquam qui adipisci ab!
+            </p>
+        </div>
+
+    </div>
+
 </div>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
