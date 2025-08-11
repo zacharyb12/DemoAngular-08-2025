@@ -1,0 +1,70 @@
+<h1 class="card p-3 w-75 m-auto text-center mt-5">Les bases des tests : <code>it()</code> et les assertions</h1>
+
+<div class="container mt-5 mb-5">
+  <p>
+    En Jasmine, la fonction <code>it()</code> permet de définir un cas de test individuel. Chaque test décrit un comportement attendu d’une partie de votre code.
+  </p>
+  
+  <h2 class="mt-4">Syntaxe de <code>it()</code></h2>
+  <pre class="bg-light p-3 rounded"><code>
+it('description du test', () =&gt; &#123;
+  // Code du test ici
+  expect(valeur_obtenue).toEqual(valeur_attendue);
+&#125;);
+  </code></pre>
+
+  <p>
+    - Le premier argument est une chaîne de caractères qui décrit ce que le test doit vérifier.<br>
+    - Le second argument est une fonction qui contient le code du test.<br>
+    - C’est dans cette fonction qu’on utilise les assertions pour valider le comportement attendu.
+  </p>
+
+  <h2 class="mt-4">La fonction <code>expect()</code> et les assertions</h2>
+  <p>
+    La fonction <code>expect()</code> est utilisée pour créer une assertion. Elle prend une valeur « réelle » (ce que le code a produit) et on lui applique ensuite une fonction d’assertion pour comparer cette valeur à une valeur attendue.
+  </p>
+
+  <h3>Exemple simple</h3>
+  <pre class="bg-light p-3 rounded"><code>
+expect(2 + 2).toEqual(4);
+  </code></pre>
+
+  <h3>Principales fonctions d’assertion disponibles</h3>
+  <ul>
+    <li><code>toEqual(valeur)</code> : Vérifie que la valeur obtenue est égale (en contenu) à la valeur attendue (pour objets et primitives).</li>
+    <li><code>toBe(valeur)</code> : Vérifie que la valeur obtenue est strictement identique (===) à la valeur attendue.</li>
+    <li><code>toBeTruthy()</code> : Vérifie que la valeur est vraie (truthy).</li>
+    <li><code>toBeFalsy()</code> : Vérifie que la valeur est fausse (falsy).</li>
+    <li><code>toBeNull()</code> : Vérifie que la valeur est null.</li>
+    <li><code>toBeUndefined()</code> : Vérifie que la valeur est undefined.</li>
+    <li><code>toContain(valeur)</code> : Vérifie que la valeur contient un élément (utile pour les tableaux et chaînes).</li>
+    <li><code>toThrow()</code> : Vérifie qu’une fonction lève une exception.</li>
+    <li><code>toThrowError(message)</code> : Vérifie qu’une fonction lève une exception avec un message spécifique.</li>
+  </ul>
+
+  <h3>Exemples d’utilisation</h3>
+  <pre class="bg-light p-3 rounded"><code>
+// Vérifie l’égalité de contenu
+expect([1, 2, 3]).toEqual([1, 2, 3]);
+
+// Vérifie l’égalité stricte
+expect(true).toBe(true);
+
+// Vérifie que la valeur est vraie
+expect('hello').toBeTruthy();
+
+// Vérifie qu’une fonction lance une erreur
+expect(() =&gt; &#123; throw new Error('Erreur !'); &#125;).toThrowError('Erreur !');
+  </code></pre>
+
+  <h2 class="mt-4">Résumé</h2>
+  <p>
+    - Chaque test <code>it()</code> doit vérifier un comportement précis.<br>
+    - Les assertions avec <code>expect()</code> permettent de valider que les résultats sont conformes aux attentes.<br>
+    - Jasmine offre plusieurs fonctions d’assertion pour couvrir la plupart des cas de tests.<br>
+  </p>
+
+  <p>
+    Pour aller plus loin, consultez la <a href="https://jasmine.github.io/api/edge/matchers.html" target="_blank" rel="noopener">documentation officielle des matchers Jasmine</a>.
+  </p>
+</div>

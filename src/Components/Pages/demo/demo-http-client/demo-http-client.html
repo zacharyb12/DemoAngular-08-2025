@@ -1,44 +1,95 @@
-<div>
+<div class="w-75 ms-5">
 
+    <h1 class="card w-75 ms-4 text-center mt-5">Observable</h1>
+
+    <article class="card w-75 ms-4 mt-3 align-center">
+
+        <div class="text-center">
+            <div>
+                <h4>Les observables</h4>
+                <p>Les observables sont des objets qui émettent des valeurs au fil du temps. Ils permettent de gérer des
+                    événements asynchrones, comme les requêtes HTTP, les événements utilisateur, ou les timers.</p>
+            </div>
+        </div>
+
+    </article>
+
+
+    <article class="card w-75 ms-4 mt-3 align-center">
+
+<div>
+<div>
   <img [src]="dogString()" alt="dog"  width="500"/>
   <button (click)="getDog()">Get a Dog</button>
+</div>
 
   
-
+<div>
   <h2>Random Dog</h2>
-<img *ngIf="dog()" [src]="dog()" alt="dog" width="300" />
-<br>
-<button (click)="loadRandomDog()">Charger un chien aléatoire</button>
+  <img *ngIf="dog()" [src]="dog()" alt="dog" width="300" />
+  <br>
+  <button (click)="loadRandomDog()">Charger un chien aléatoire</button>
+</div>
+
+<div>
+  <h2>Dog par race</h2>
+  <select [(ngModel)]="selectedBreed">
+    <option *ngFor="let breed of breeds()" [value]="breed">{{ breed }}</option>
+  </select>
+  <button (click)="loadDogByBreed()">Charger un chien de cette race</button>
+  <br>
+  <img *ngIf="breedDog()" [src]="breedDog()" alt="breed dog" width="300" />
+</div>
 
 
-<h2>Dog par race</h2>
-<select [(ngModel)]="selectedBreed">
-  <option *ngFor="let breed of breeds()" [value]="breed">{{ breed }}</option>
-</select>
-<button (click)="loadDogByBreed()">Charger un chien de cette race</button>
-<br>
-<img *ngIf="breedDog()" [src]="breedDog()" alt="breed dog" width="300" />
+<div>
 
-
-
-<h2>Images de la race sélectionnée</h2>
-<button (click)="loadBreedImages()">Charger toutes les images</button>
-<div *ngIf="breedImages().length">
-  <div *ngFor="let img of breedImages()" style="display:inline-block;margin:5px;">
-    <img [src]="img" width="100" height="100" />
+  <h2>Images de la race sélectionnée</h2>
+  <button (click)="loadBreedImages()">Charger toutes les images</button>
+  <div *ngIf="breedImages().length">
+    <div *ngFor="let img of breedImages()" style="display:inline-block;margin:5px;">
+      <img [src]="img" width="100" height="100" />
+    </div>
   </div>
 </div>
 
 
+<div> 
+  <h2>Envoyer un chien (POST)</h2>
+  <input type="text" [(ngModel)]="dogToPost" placeholder="URL d'un chien" />
+  <button (click)="postDog()">Envoyer</button>
+  <div *ngIf="postStatus() !== null">
+    <span [style.color]="postStatus() ? 'green' : 'red'">
+      {{ postStatus() ? 'Succès' : 'Échec' }} de l'envoi
+    </span>
+  </div>
 
-<h2>Envoyer un chien (POST)</h2>
-<input type="text" [(ngModel)]="dogToPost" placeholder="URL d'un chien" />
-<button (click)="postDog()">Envoyer</button>
-<div *ngIf="postStatus() !== null">
-  <span [style.color]="postStatus() ? 'green' : 'red'">
-    {{ postStatus() ? 'Succès' : 'Échec' }} de l'envoi
-  </span>
 </div>
 
 
 </div>
+
+    </article>
+
+
+
+
+    <div class="card w-75 ms-4 mt-3 align-center">
+        <h3 class="text-center"></h3>
+        <div class=" m-auto align-center text-center">
+            <div>
+                <h3>http ts</h3>
+                <img src="images/bindings.png" alt="exemple" width="500" height="400"
+                    class="img-fluid m-auto rounded card mb-5">
+            </div>
+            <div>
+                <h3>http html</h3>
+                <img src="images/bindings.png" alt="exemple" width="500" height="400"
+                    class="img-fluid m-auto rounded card mb-5">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

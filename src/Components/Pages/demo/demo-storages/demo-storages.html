@@ -1,4 +1,10 @@
-<article>
+<div class="w-75 ms-5">
+
+    <h1 class="card w-75 ms-4 text-center mt-5">Routing</h1>
+
+    <article class="card w-75 ms-4 mt-3 align-center">
+
+    <div class="text-center">
     <div>
         <h4>Local Storage Demo</h4>
         <p>le local storage et le session storage sont des moyens de stocker des données dans le navigateur</p>
@@ -9,13 +15,39 @@
         <p>Le local storage est accessible via l'objet <code>localStorage</code>, tandis que le session storage est accessible via l'objet <code>sessionStorage</code>.</p>
         <p>Le local storage et le session storage sont des objets JavaScript qui permettent de stocker des paires clé-valeur dans le navigateur.</p>
         <p>Ils sont souvent utilisés pour stocker des données de manière persistante ou temporaire, comme les préférences utilisateur, les informations de session, ou les données de formulaire.</p>
-    </div>
+    </div>    </div>
+
+</article>
+
+
+<article>
     <div>
         {{data}}
+        <br>
         <input type="text" [(ngModel)]="data">
+        <br>
         <button (click)="SetLocalStorage()">Save Data</button>
         <button (click)="GetInfoLocalStorage()">Load Data</button>
         <button (click)="RemoveLocalStorage()">Clear one Data</button>
         <button (click)="ClearLocalStorage()">Clear Data</button>
     </div>
 </article>
+
+
+
+
+<div class="card w-75 ms-4 mt-3 align-center">
+    <h3 class="text-center"></h3>
+    <div class=" m-auto align-center text-center">
+        <div>
+            <h3>localStorage  ts</h3>
+            <img src="images/bindings.png" alt="exemple" width="500" height="400" class="img-fluid m-auto rounded card mb-5">
+        </div>
+                <div>
+            <h3>localStorage html</h3>
+            <img src="images/bindings.png" alt="exemple" width="500" height="400" class="img-fluid m-auto rounded card mb-5">
+        </div>
+    </div>
+</div>
+
+</div>

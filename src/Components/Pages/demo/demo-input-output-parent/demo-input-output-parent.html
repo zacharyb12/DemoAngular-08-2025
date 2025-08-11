@@ -1,20 +1,58 @@
-<div class=" ">
+<div class="w-75 ms-5">
 
-    <div class="card bg-light m-auto">
-        <h2>Parent</h2>
-        <input type="text"[(ngModel)]="valueFromParent" />
-        <div class="mt-3">
-            <p><strong>Value received from child:</strong> {{ valueFromChild }}</p>
-          </div>
+    <h1 class="card w-75 ms-4 text-center mt-5">Input-Output</h1>
+
+    <article class="card w-75 ms-4 mt-3 align-center">
+
+    <div class="text-center">
+        <h3>Input</h3>
+        <p>text</p>
     </div>
 
+</article>
 
-    <div class="card bg-light m-auto mt-3"> 
-        <h2>Child</h2>
+    <article class="card w-75 ms-4 mt-3 align-center">
+
+    <div class="text-center">
+        <h3>Output</h3>
+        <p>text</p>
+    </div>
+
+</article>
+
+
+    <article class="card w-75 ms-4 mt-3 align-center">
+        <div class="w-75 m-auto text-center">
+            <h2>Parent</h2>
+            <input type="text"[(ngModel)]="valueFromParent" />
+            <div class="mt-3">
+                <p><strong>Value received from child:</strong> {{ valueFromChild }}</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="card w-75 ms-4 mt-3 align-center">
+            <div class="w-75 m-auto text-center">
+            <h2>Child</h2>
         <app-demo-input-output-enfant
         [valueFromParent]="valueFromParent"
         (emitValue)="handleValueFromChild($event)"
         ></app-demo-input-output-enfant>
     </div>
+</article>
+
+<div class="card w-75 ms-4 mt-3 align-center">
+    <h3 class="text-center"></h3>
+    <div class=" m-auto align-center text-center">
+        <div>
+            <h3>Input</h3>
+            <img src="images/bindings.png" alt="exemple" width="500" height="400" class="img-fluid m-auto rounded card mb-5">
+        </div>
+                <div>
+            <h3>Output</h3>
+            <img src="images/bindings.png" alt="exemple" width="500" height="400" class="img-fluid m-auto rounded card mb-5">
+        </div>
+    </div>
+</div>
 
 </div>

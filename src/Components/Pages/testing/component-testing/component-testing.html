@@ -1,0 +1,194 @@
+<h1 class="card p-3 w-75 m-auto text-center mt-5">Tests des composants Angular : Méthodes & Rendu</h1>
+
+<div class="container mt-4">
+  <p>
+    Dans Angular, les tests des composants jouent un rôle crucial pour garantir que vos éléments fonctionnent correctement
+    à la fois au niveau de la logique métier (méthodes) et de l’interface utilisateur (template HTML, interactions).
+    Cette page détaille comment organiser et écrire ces tests efficacement.
+  </p>
+</div>
+
+<div class="card p-4 m-5">
+  <h2>1. Tester les méthodes du composant (logique métier)</h2>
+  <p>
+    Ces tests se concentrent uniquement sur la classe TypeScript du composant. Ils valident le comportement des fonctions, calculs,
+    gestion d’états internes, sans tenir compte du rendu HTML.
+  </p>
+  <h3>Pourquoi ?</h3>
+  <ul>
+    <li>Vérifier que vos fonctions retournent les bons résultats</li>
+    <li>Assurer la gestion correcte des données et états internes</li>
+    <li>Tester les scénarios d’erreur et exceptions</li>
+  </ul>
+  <h3>Exemple simple :</h3>
+  <pre>
+    <code>
+      it('should add two numbers correctly', () =&gt; &#123;
+        const result = component.addition(4, 6);
+        expect(result).toEqual(10);
+      &#125;);
+
+      it('should throw error on division by zero', () =&gt; &#123;
+        expect(() =&gt; component.division(5, 0)).toThrowError('Division by zero is not allowed');
+      &#125;);
+    </code>
+  </pre>
+  <p>
+    Ces tests ne nécessitent pas de manipuler le DOM, ils sont rapides à exécuter.
+  </p>
+</div>
+
+<div class="card p-4 m-5">
+  <h2>2. Tester le rendu et les interactions utilisateur</h2>
+  <p>
+    Ces tests vérifient que le template HTML s’affiche correctement et que les événements (clics, saisies, changements)
+    déclenchent bien les comportements attendus dans le composant.
+  </p>
+  <h3>Ce que vous pouvez tester :</h3>
+  <ul>
+    <li>Affichage conditionnel des éléments (avec *ngIf, *ngFor…)</li>
+    <li>Contenu textuel et attributs dans le DOM</li>
+    <li>Réactivité aux actions utilisateur (click, input, change…)</li>
+    <li>Appels de méthodes suite aux événements</li>
+  </ul>
+  <h3>Exemples :</h3>
+  <pre>
+    <code>
+      // Vérifier l'affichage conditionnel avec *ngIf
+      it('should display the message only when isVisible is true', () =&gt; &#123;
+        component.isVisible = false;
+        fixture.detectChanges();
+        let compiled = fixture.nativeElement as HTMLElement;
+        expect(compiled.querySelector('.message')).toBeNull();
+
+        component.isVisible = true;
+        fixture.detectChanges();
+        compiled = fixture.nativeElement as HTMLElement;
+        expect(compiled.querySelector('.message')?.textContent).toContain('Hello World');
+      &#125;);
+
+      // Vérifier l'affichage d'une liste avec *ngFor
+      it('should render a list of items', () =&gt; &#123;
+        component.items = ['Pomme', 'Banane', 'Cerise'];
+        fixture.detectChanges();
+        const compiled = fixture.nativeElement as HTMLElement;
+        const listItems = compiled.querySelectorAll('li');
+        expect(listItems.length).toBe(3);
+        expect(listItems[0].textContent).toContain('Pomme');
+        expect(listItems[1].textContent).toContain('Banane');
+        expect(listItems[2].textContent).toContain('Cerise');
+      &#125;);
+    </code>
+  </pre>
+  <p>
+    <strong>Attention :</strong> n’oubliez pas d’appeler <code>fixture.detectChanges()</code> pour que Angular mette à jour le DOM après modifications.
+  </p>
+</div>
+
+
+<div class="card p-4 m-5">
+  <h2>3. Conseils et bonnes pratiques</h2>
+  <ul>
+    <li><strong>Isoler la logique :</strong> testez d’abord les méthodes indépendamment, sans passer par le DOM.</li>
+    <li><strong>Séparer les responsabilités :</strong> faites une suite de tests dédiée aux méthodes, une autre dédiée au rendu.</li>
+    <li><strong>Mocker les services :</strong> utilisez des mocks et spies pour isoler le composant des dépendances externes.</li>
+    <li><strong>Tester les cas d’erreur :</strong> vérifiez que votre composant gère bien les erreurs (ex : division par zéro, données manquantes).</li>
+    <li><strong>Utiliser les bons outils :</strong> <code>TestBed</code>, <code>fixture.detectChanges()</code>, <code>querySelector</code>, <code>spyOn</code>, et les matchers Jasmine comme <code>toEqual</code>, <code>toThrowError</code>.</li>
+  </ul>
+</div>
+
+<div class="card p-4 m-5">
+  <h2>4. Résumé des fonctions Jasmine courantes</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Fonction</th>
+        <th>Description</th>
+        <th>Exemple</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>describe()</code></td>
+        <td>Regroupe plusieurs tests sous un même thème</td>
+        <td><code>describe('MyComponent', () =&gt; &#123; ... &#125;)</code></td>
+      </tr>
+      <tr>
+        <td><code>it()</code></td>
+        <td>Déclare un cas de test individuel</td>
+        <td><code>it('should do X', () =&gt; &#123; ... &#125;)</code></td>
+      </tr>
+      <tr>
+        <td><code>expect()</code></td>
+        <td>Fait une assertion sur une valeur</td>
+        <td><code>expect(value).toEqual(expectedValue)</code></td>
+      </tr>
+      <tr>
+        <td><code>toEqual()</code></td>
+        <td>Teste l’égalité stricte entre valeurs</td>
+        <td><code>expect(2 + 2).toEqual(4)</code></td>
+      </tr>
+      <tr>
+        <td><code>toBeTruthy()</code></td>
+        <td>Vérifie qu’une valeur est vraie (truthy)</td>
+        <td><code>expect(isValid).toBeTruthy()</code></td>
+      </tr>
+      <tr>
+        <td><code>toBeFalsy()</code></td>
+        <td>Vérifie qu’une valeur est fausse (falsy)</td>
+        <td><code>expect(hasError).toBeFalsy()</code></td>
+      </tr>
+      <tr>
+        <td><code>toThrowError()</code></td>
+        <td>Teste qu’une fonction lance une erreur</td>
+        <td><code>expect(() =&gt; myFunc()).toThrowError('message')</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container mt-4 mb-5">
+  <h2>5. Exemple complet : Test d’un composant simple</h2>
+  <p>Voici un exemple illustrant la séparation des tests méthodes / rendu :</p>
+  <pre>
+    <code>
+      describe('CounterComponent', () =&gt; &#123;
+        let component: CounterComponent;
+        let fixture: ComponentFixture&lt;CounterComponent&gt;;
+
+        beforeEach(async () =&gt; &#123;
+          await TestBed.configureTestingModule(&#123;
+            declarations: [CounterComponent]
+          &#125;).compileComponents();
+
+          fixture = TestBed.createComponent(CounterComponent);
+          component = fixture.componentInstance;
+          fixture.detectChanges();
+        &#125;);
+
+        // Tests méthodes
+        it('should start with count 0', () =&gt; &#123;
+          expect(component.count).toEqual(0);
+        &#125;);
+
+        it('should increment count', () =&gt; &#123;
+          component.increment();
+          expect(component.count).toEqual(1);
+        &#125;);
+
+        // Tests rendu / interaction
+        it('should display count in template', () =&gt; &#123;
+          const compiled = fixture.nativeElement as HTMLElement;
+          expect(compiled.querySelector('.count')?.textContent).toContain('0');
+        &#125;);
+
+        it('should increment count on button click', () =&gt; &#123;
+          const button = fixture.nativeElement.querySelector('button');
+          button.click();
+          fixture.detectChanges();
+          expect(component.count).toEqual(1);
+        &#125;);
+      &#125;);
+    </code>
+  </pre>
+</div>

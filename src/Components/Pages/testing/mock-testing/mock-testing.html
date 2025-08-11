@@ -1,0 +1,137 @@
+<h1 class="card p-3 w-75 m-auto text-center mt-5">Mocks & Injection de dépendances en Angular (Tests unitaires)</h1>
+
+<div class="container mt-4">
+  <p>
+    En Angular, les tests unitaires ont pour objectif de vérifier que chaque composant ou service fonctionne correctement, de manière isolée.
+    Pour cela, il faut souvent séparer l’élément testé de ses dépendances extérieures comme d’autres services, des appels HTTP, ou le routeur.
+    Cette page explique comment utiliser <strong>TestBed</strong> — un outil Angular pour créer un environnement de test — ainsi que les <strong>mocks</strong> (faux services), les <strong>espions (spies)</strong> qui permettent d’observer ou contrôler le comportement d’une méthode, et d’autres modules Angular dédiés aux tests, afin de simuler ces dépendances sans les utiliser réellement.
+  </p>
+</div>
+
+<div class="card p-4 m-5">
+  <h2>1. Pourquoi mocker et injecter des dépendances ?</h2>
+  <p>
+    Lorsque l’on teste un composant ou un service, on veut que le test soit fiable, rapide, et concentré uniquement sur ce qu’on teste.
+    Si on utilise les vraies dépendances, on risque d’avoir des effets secondaires comme des appels réseaux, une base de données, ou des composants complexes qui rendent le test lent ou peu stable.
+    <br><br>
+    <strong>Les mocks</strong> sont des versions simplifiées des dépendances, qui ne font rien d’autre que simuler un comportement précis et attendu.
+    Ainsi, on peut :
+  </p>
+  <ul>
+    <li>Éviter d’appeler des services externes ou bases de données réels, ce qui accélère les tests</li>
+    <li>Contrôler précisément les données ou erreurs renvoyées par ces dépendances</li>
+    <li>Tester les interactions entre le composant et ses dépendances (par exemple, vérifier qu’une méthode a bien été appelée)</li>
+    <li>Rendre les tests plus faciles à écrire et à maintenir, car le comportement des mocks est prévisible</li>
+  </ul>
+</div>
+
+<div class="card p-4 m-5">
+  <h2>2. Utiliser TestBed pour configurer le module de test</h2>
+  <p>
+    <code>TestBed</code> est l’outil principal d’Angular pour configurer un environnement de test qui simule un module Angular.
+    <br>
+    Il permet de déclarer les composants à tester, d’importer les modules nécessaires, et surtout de fournir des services réels ou des mocks à utiliser pendant le test.
+    <br><br>
+    Pour cela, on appelle <code>configureTestingModule</code> en lui passant la configuration sous forme d’un objet (ici sans accolades, format simplifié).
+    <br>
+    Puis, on appelle <code>compileComponents()</code> pour préparer les composants à tester.
+  </p>
+  <pre><code>
+beforeEach(() =&gt; 
+  TestBed.configureTestingModule(
+    declarations: [MonComposant],
+    imports: [HttpClientTestingModule, RouterTestingModule],
+    providers: [
+      provide: MonService, useClass: MonServiceMock,
+      provide: ActivatedRoute, useValue: routeMock
+    ]
+  ).compileComponents();
+);
+  </code></pre>
+  <p>
+    Dans cette configuration :
+  </p>
+  <ul>
+    <li><code>declarations</code> : liste des composants à tester</li>
+    <li><code>imports</code> : modules Angular nécessaires, ici des modules spécifiques aux tests HTTP et routage</li>
+    <li><code>providers</code> : services fournis à Angular pour ce test, ici on remplace le service réel par un mock personnalisé ou un mock d’objet</li>
+  </ul>
+  <p>
+    Cela permet de contrôler totalement l’environnement du test et d’injecter des dépendances factices.
+  </p>
+</div>
+
+<div class="card p-4 m-5">
+  <h2>3. Créer un mock de service et utiliser les espions (spies)</h2>
+  <p>
+    Un <strong>mock</strong> est souvent une classe simple ou un objet avec des méthodes qui ne font rien de réel, mais renvoient des valeurs fixes ou simulées.
+    Cela permet de remplacer un service complexe par une version légère pour le test.
+    <br><br>
+    Les <code>spyOn</code> (espions) sont des fonctions d’Angular qui permettent d’observer et de modifier le comportement d’une méthode existante sur un service injecté.
+    <br>
+    Par exemple, on peut surveiller si une méthode a été appelée, combien de fois, avec quels arguments, et même forcer son retour.
+  </p>
+  <pre><code>
+class MonServiceMock 
+  getData() 
+    return of(['test1', 'test2']);
+  
+
+it('devrait appeler getData et retourner les données', () =&gt; 
+  const service = TestBed.inject(MonService);
+  spyOn(service, 'getData').and.returnValue(of(['mocked data']));
+  
+  component.ngOnInit();
+  expect(service.getData).toHaveBeenCalled();
+  expect(component.data).toEqual(['mocked data']);
+);
+  </code></pre>
+  <p>
+    Ici, la classe <code>MonServiceMock</code> simule un service avec une méthode <code>getData</code> qui renvoie des données fictives.
+    Dans le test, on injecte le vrai service (remplacé par le mock dans la configuration), puis on espionne la méthode <code>getData</code> pour forcer un retour contrôlé.
+    <br>
+    On vérifie ensuite que la méthode a bien été appelée et que les données reçues correspondent à ce qui est attendu.
+  </p>
+</div>
+
+<div class="card p-4 m-5">
+  <h2>4. Modules Angular utiles pour les tests avec injection</h2>
+  <p>
+    Angular propose plusieurs modules spécialement conçus pour faciliter les tests, notamment pour mocker certaines fonctionnalités complexes comme les requêtes HTTP ou le routage.
+  </p>
+  <ul>
+    <li><code>HttpClientTestingModule</code> : remplace le client HTTP réel par un client qui simule les requêtes, ce qui évite tout appel réseau réel lors des tests</li>
+    <li><code>RouterTestingModule</code> : fournit un routeur simulé, utile pour tester les composants qui utilisent la navigation ou la gestion des routes</li>
+    <li><code>ActivatedRoute</code> mocké : on peut fournir un objet qui simule les paramètres de route ou les données, en utilisant par exemple des observables</li>
+  </ul>
+  <pre><code>
+const routeMock = 
+  snapshot: params: id: 123,
+  paramMap: of(convertToParamMap(id: '123'))
+;
+
+TestBed.configureTestingModule(
+  providers: [
+    provide: ActivatedRoute, useValue: routeMock
+  ]
+);
+  </code></pre>
+  <p>
+    Ce type de mock est très utile pour tester comment un composant réagit aux paramètres d’URL ou aux changements de route.
+  </p>
+</div>
+
+<div class="card p-4 m-5">
+  <h2>5. Résumé & bonnes pratiques</h2>
+  <ul>
+    <li>Utilisez systématiquement <code>TestBed</code> pour créer un module de test complet, fiable et facile à maintenir.</li>
+    <li>Mockez vos services afin d’isoler le composant ou service testé, évitant ainsi les effets secondaires.</li>
+    <li>Privilégiez les modules Angular spécialisés comme <code>HttpClientTestingModule</code> et <code>RouterTestingModule</code> qui simplifient le mock des fonctionnalités complexes.</li>
+    <li>Employez <code>spyOn</code> pour contrôler finement et vérifier les appels aux méthodes des dépendances, notamment pour s’assurer qu’une action a bien eu lieu.</li>
+    <li>Injectez vos mocks via la propriété <code>providers</code> dans la configuration de <code>TestBed</code>, pour garder le contrôle de l’environnement de test.</li>
+    <li>Gardez vos mocks simples : ne reproduisez pas toute la logique métier, mais simulez uniquement les comportements nécessaires au test.</li>
+  </ul>
+  <p>
+    Respecter ces bonnes pratiques permet d’avoir des tests unitaires rapides, fiables, et faciles à comprendre et maintenir.
+  </p>
+</div>

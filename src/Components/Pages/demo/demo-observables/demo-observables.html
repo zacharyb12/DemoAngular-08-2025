@@ -1,21 +1,60 @@
-<h3>Démo d'Observable simple</h3>
+<div class="w-75 ms-5">
 
-<p>Valeur reçue : {{ counterValue }}</p>
+    <h1 class="card w-75 ms-4 text-center mt-5">Observable</h1>
 
-<button (click)="startCounter()">Démarrer</button>
-<button (click)="stopCounter()">Arrêter</button>
+    <article class="card w-75 ms-4 mt-3 align-center">
+
+        <div class="text-center">
+            <div>
+                <h4>Les observables</h4>
+                <p>Les observables sont des objets qui émettent des valeurs au fil du temps. Ils permettent de gérer des
+                    événements asynchrones, comme les requêtes HTTP, les événements utilisateur, ou les timers.</p>
+            </div>
+        </div>
+
+    </article>
 
 
-<h2>Demo Observable objet</h2>
+    <article class="card w-75 ms-4 mt-3 align-center">
 
-<button (click)="getShoppingItem()">Start</button>
-<div class="d-flex gap-2 row justify-content-evenly">
-    <div *ngFor="let product of products" class="card m-3 w-25">
-        <!-- Display product properties here, e.g.: -->
-        {{ product.id }}
-        {{ product.name }}
-        {{ product.price }}
-        <img [src]="product.img" [alt]="product.name" width="300">
+
+        <p>Valeur reçue : {{ counterValue }}</p>
+
+        <button (click)="startCounter()">Démarrer</button>
+        <button (click)="stopCounter()">Arrêter</button>
+
+
+        <h2>Demo Observable</h2>
+
+        <button (click)="getShoppingItem()">Start</button>
+        <div class="d-flex gap-2 row justify-content-evenly">
+            <div *ngFor="let product of products" class="card m-3 w-25">
+                <!-- Display product properties here, e.g.: -->
+                {{ product.id }}
+                {{ product.name }}
+                {{ product.price }}
+                <img [src]="product.img" [alt]="product.name" width="300">
+            </div>
+        </div>
+    </article>
+
+
+
+
+    <div class="card w-75 ms-4 mt-3 align-center">
+        <h3 class="text-center"></h3>
+        <div class=" m-auto align-center text-center">
+            <div>
+                <h3>localStorage ts</h3>
+                <img src="images/bindings.png" alt="exemple" width="500" height="400"
+                    class="img-fluid m-auto rounded card mb-5">
+            </div>
+            <div>
+                <h3>localStorage html</h3>
+                <img src="images/bindings.png" alt="exemple" width="500" height="400"
+                    class="img-fluid m-auto rounded card mb-5">
+            </div>
+        </div>
     </div>
-</div>
 
+</div>
