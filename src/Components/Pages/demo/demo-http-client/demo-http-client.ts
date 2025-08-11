@@ -67,6 +67,9 @@ response.message ? this.dogString.set(response.message) : this.dogString.set('No
        console.error('Error  dog image:', error);
        console.error('Error status:', error.status);
 
+      },
+      complete: () => {
+        console.log('Request complete');
       }
     });
   }
