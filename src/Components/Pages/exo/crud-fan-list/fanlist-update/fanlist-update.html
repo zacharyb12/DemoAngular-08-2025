@@ -1,1 +1,23 @@
-<p>fanlist-update works!</p>
+<article>
+
+    <h4>Modifier les détails du fan</h4>
+    
+    <form (ngSubmit)="updateFan()">
+        <div>
+            <label for="name">Nom:</label>
+            <input type="text" id="name" [(ngModel)]="fan.name" name="name" required>
+        </div>
+        
+        <div>
+            <label for="birthDate">Date de naissance:</label>
+            <input type="date" id="birthDate" [(ngModel)]="fan.birthDate" name="birthDate" required>
+        </div>
+        
+        <div>
+            <label for="listSeries">Séries préférées:</label>
+            <input type="text" id="listSeries" [(ngModel)]="fan.listSeries" name="listSeries" required>
+        </div>
+
+        <button type="submit">Mettre à jour</button>
+    </form>
+</article>

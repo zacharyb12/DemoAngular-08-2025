@@ -6,20 +6,24 @@ import { Fan } from '../../../../shared/Models/fan.model';
 })
 export class FanlistService {
 
-  fanList : Fan[] = [];
+  fanList : Fan[] = [
+    {
+      id: 1,
+      name: 'John Doe',
+      birthDate: new Date('2000-01-15'),
+      listSeries: ['Series A', 'Series B']
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      birthDate: new Date('2010-05-20'),
+      listSeries: ['Series C']
+    }
+  ];
 
   addFan(fan : Fan){
-    const today = new Date();
-    const minDate = new Date(
-      today.getFullYear() - 13,
-      today.getMonth(),
-      today.getDate()
-    );  
-
-    if (fan.birthDate < minDate) {
-      fan.id = this.fanList.length + 1;
       this.fanList.push(fan);
-    }
+    
   }
     
   getFans() : Fan[]{
@@ -39,4 +43,7 @@ export class FanlistService {
       return false;
   }
 
+  deleteFan(id: number){
+    this.fanList = this.fanList.filter(fan => fan.id !== id);
+  }
 }

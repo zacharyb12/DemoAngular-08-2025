@@ -24,6 +24,9 @@ import { Compteur } from '../Components/Pages/exo/compteur/compteur';
 import { ListeArticle } from '../Components/Pages/exo/liste-article/liste-article/liste-article';
 import { ListeArticleService } from '../Components/Pages/exo/liste-article-service/liste-article-service/liste-article-service';
 import { FanlistListe } from '../Components/Pages/exo/crud-fan-list/fanlist-liste/fanlist-liste';
+import { FanlistCreate } from '../Components/Pages/exo/crud-fan-list/fanlist-create/fanlist-create';
+import { FanlistDetails } from '../Components/Pages/exo/crud-fan-list/fanlist-details/fanlist-details';
+import { FanlistUpdate } from '../Components/Pages/exo/crud-fan-list/fanlist-update/fanlist-update';
 
 
 export const routes: Routes = [
@@ -52,8 +55,8 @@ export const routes: Routes = [
         {path: "liste-article", component: ListeArticle },
         {path: "liste-article-service" , component: ListeArticleService},
         {path: "fan-list/liste", component: FanlistListe},
-        {path: "fan-list/details/:id", component: FanlistListe},
-        {path: "fan-list/create", component: FanlistListe},
-        {path: "fan-list/update/:id", component: FanlistListe}
+        {path: "fan-list/create", component: FanlistCreate},
+        {path: "fan-list/details/:id", component: FanlistDetails},
+        {path: "fan-list/update/:id", component: FanlistUpdate}
     ]},
 ];

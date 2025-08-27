@@ -1,1 +1,20 @@
-<p>fanlist-create works!</p>
+<article>
+
+    <h3>Créer un fan</h3>
+<form (ngSubmit)="addFan()">
+  <div>
+    <label for="name">Nom:</label>
+    <input type="text" id="name" [(ngModel)]="fan.name" name="name" required>
+  </div>
+  <div>
+    <label for="birthDate">Date de naissance:</label>
+    <input type="date" id="birthDate" [(ngModel)]="fan.birthDate" name="birthDate" required>
+  </div>
+  <div>
+    <label for="series">Séries préférées:</label>
+    <input type="text" id="series" [(ngModel)]="fan.listSeries[0]" name="series">
+  </div>
+  <button type="submit">Créer</button>
+</form>
+
+</article>

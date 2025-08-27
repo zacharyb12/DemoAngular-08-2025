@@ -1,1 +1,20 @@
-<p>fanlist-liste works!</p>
+<article>
+    <h3>Liste des Fans</h3>
+    <button (click)="createFan()">Créer un Fan</button>
+
+    <div>
+        @for(fan of listFan;track fan.id){
+            <div class="card m-auto w-50 mt-3 text-center p-2">
+                <p>{{ fan.name }}</p>
+                <p>{{ fan.birthDate | date : 'dd/MM/yyyy' }}</p>
+                @for(series of fan.listSeries; track series){
+                    <p>{{ series }}</p>
+                }
+                <div class="d-flex justify-content-evenly">
+                    <button class="btn btn-sm btn-outline-primary w-25" (click)="detailsFan(fan.id)">details</button>
+                </div>
+            </div>
+            }
+            
+    </div>
+</article>
