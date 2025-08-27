@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExoHome } from './exo-home';
+import { InputArticleService } from './input-article-service';
 
-describe('ExoHome', () => {
-  let component: ExoHome;
-  let fixture: ComponentFixture<ExoHome>;
+describe('InputArticleService', () => {
+  let component: InputArticleService;
+  let fixture: ComponentFixture<InputArticleService>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExoHome]
+      imports: [InputArticleService]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ExoHome);
+    fixture = TestBed.createComponent(InputArticleService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

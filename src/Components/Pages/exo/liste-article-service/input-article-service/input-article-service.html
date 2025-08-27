@@ -1,0 +1,31 @@
+<article class="card w-50 p-3 mt-5 ms-5 me-auto">
+    <div class="w-75 m-auto text-center">
+        <h3>Ajouter un article</h3>
+        <form (ngSubmit)="onSubmit()">
+            <div>
+                <label for="title">Title</label>
+                <input class="mt-1 form-control w-50 m-auto" type="text" [(ngModel)]="article.title" name="title" placeholder="Titre" required>
+            </div>
+
+            <div>
+                <label for="price">Price</label>
+                <input class="mt-1 form-control w-50 m-auto" type="number" [(ngModel)]="article.price" name="price" placeholder="Prix" required>
+            </div>
+            <br>
+            <div>
+                <label for="description">Description</label>
+                <textarea class="mt-1 form-control w-50 m-auto" [(ngModel)]="article.description" name="description" placeholder="Description" required></textarea>
+            </div>
+            <br>
+            <div>
+                <label for="quantity">Quantité</label>
+                <input class="mt-1 form-control w-50 m-auto" type="number" [(ngModel)]="article.quantity" name="quantity" placeholder="Quantité" required>
+            </div>
+            <br>
+            <button class="mt-3 btn btn-outline-primary" type="submit">Ajouter</button>
+        </form>
+        @if(errorMessage.length > 0) {
+            <p [ngStyle]="{ 'color': 'red' }">{{ errorMessage }}</p>
+        }
+    </div>
+</article>

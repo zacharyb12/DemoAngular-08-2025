@@ -6,7 +6,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-demo-routing',
   imports: [
     RouterOutlet,
-    RouterLink,
     CommonModule
   ],
   templateUrl: './demo-routing.html',

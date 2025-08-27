@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExoBindings } from './exo-bindings';
+import { Compteur } from './compteur';
 
-describe('ExoBindings', () => {
-  let component: ExoBindings;
-  let fixture: ComponentFixture<ExoBindings>;
+describe('Compteur', () => {
+  let component: Compteur;
+  let fixture: ComponentFixture<Compteur>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExoBindings]
+      imports: [Compteur]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ExoBindings);
+    fixture = TestBed.createComponent(Compteur);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

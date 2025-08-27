@@ -4,8 +4,6 @@ import { DemoRouting } from '../Components/Pages/demo/demo-routing/demo-routing'
 import { DemoHome } from '../Components/Pages/demo/demo-home/demo-home';
 import { DemoBindings } from '../Components/Pages/demo/demo-bindings/demo-bindings';
 import { ExoRouting } from '../Components/Pages/exo/exo-routing/exo-routing';
-import { ExoHome } from '../Components/Pages/exo/exo-home/exo-home';
-import { ExoBindings } from '../Components/Pages/exo/exo-bindings/exo-bindings';
 import { DemoPipe } from '../Components/Pages/demo/demo-pipe/demo-pipe';
 import { DemoDirectives } from '../Components/Pages/demo/demo-directives/demo-directives';
 import { DemoServices } from '../Components/Pages/demo/demo-services/demo-services';
@@ -22,6 +20,10 @@ import { DemoInputOutputParent } from '../Components/Pages/demo/demo-input-outpu
 import { DemoRouteList } from '../Components/Pages/demo/demo-route-list/demo-route-list';
 import { DemoRouteDetails } from '../Components/Pages/demo/demo-route-details/demo-route-details';
 import { shoppingResolver } from '../Components/shared/resolver/shoppingItem/shopping-resolver-resolver';
+import { Compteur } from '../Components/Pages/exo/compteur/compteur';
+import { ListeArticle } from '../Components/Pages/exo/liste-article/liste-article/liste-article';
+import { ListeArticleService } from '../Components/Pages/exo/liste-article-service/liste-article-service/liste-article-service';
+import { FanlistListe } from '../Components/Pages/exo/crud-fan-list/fanlist-liste/fanlist-liste';
 
 
 export const routes: Routes = [
@@ -29,8 +31,6 @@ export const routes: Routes = [
     {path : "demo" , component : DemoRouting , children: [
         {path: "", component: DemoHome},
         {path: "bindings", component: DemoBindings},
-        {path: "", component: ExoHome},
-        {path: "bindings", component: ExoBindings},
         {path: "pipes", component: DemoPipe},
         {path: "directives", component: DemoDirectives},
         {path: "input-output", component: DemoInputOutputParent},
@@ -48,5 +48,12 @@ export const routes: Routes = [
         {path: "build", component: DemoBuild},
     ]},
     {path : "exo" , component : ExoRouting , children: [
+        {path: "compteur", component: Compteur },
+        {path: "liste-article", component: ListeArticle },
+        {path: "liste-article-service" , component: ListeArticleService},
+        {path: "fan-list/liste", component: FanlistListe},
+        {path: "fan-list/details/:id", component: FanlistListe},
+        {path: "fan-list/create", component: FanlistListe},
+        {path: "fan-list/update/:id", component: FanlistListe}
     ]},
 ];

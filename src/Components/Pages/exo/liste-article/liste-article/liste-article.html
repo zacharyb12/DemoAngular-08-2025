@@ -1,0 +1,27 @@
+<article>
+
+    <app-input (sendValue)="onArticleAdded($event)"></app-input>
+
+</article>
+
+<article class="card w-50 p-3 mt-5 ms-5 me-auto text-center">
+    @if(listArticle.length === 0) {
+        <p>Aucun article disponible</p>
+    } 
+    @else {
+
+        <h4>Liste des articles</h4>
+        
+        @for (article of listArticle; track article.id) {
+            
+            <div class="card mt-3 w-50 m-auto p-3">
+                <p>{{ article.title }}</p>
+                <p>{{ article.price }}€</p>
+                <p>{{ article.description }}</p>
+                <button class="btn btn-outline-danger" (click)="removeArticle(article.id)">Supprimer</button>
+            </div>
+            
+        }
+
+    }
+</article>

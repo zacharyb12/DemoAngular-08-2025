@@ -1,0 +1,23 @@
+<h1 class="text-center w-25 m-auto bg-light mt-5 rounded p-2">Le chrono</h1>
+
+  <article class="card p-3 text-center w-50 m-auto mt-5">
+    <h2>Objectif:</h2>
+    <section>
+      <p> Mettre en place un chronomètre- 3 Boutons : </p>
+
+        <p>Start, Pause, Reset (actif/inactif en fonction des besoins)</p>
+        <p>Affichage “xx heures xx minutes xx secondes”</p>
+    </section>
+  </article>
+
+<article class="card p-3 text-center w-50 m-auto mt-5">
+  <h2>Chronomètre:</h2>
+
+  <section>
+    <h3>{{chronoHeures }} h : {{chronoMinutes}} min : {{chronoSecondes}} sec </h3>
+    <button class="btn btn-info p-2 m-3" (click)="play()" [disabled]="enCours">play</button>
+    <button class="btn btn-warning p-2 m-3" (click)="pause()" [disabled]="!enCours">pause</button>
+    <button class="btn btn-danger p-2 m-3" (click)="reset()">reset</button>
+  </section>
+  
+</article>
