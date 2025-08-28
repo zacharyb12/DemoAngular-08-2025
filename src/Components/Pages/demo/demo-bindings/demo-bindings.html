@@ -1,18 +1,18 @@
-<div class="w-75 ms-5 mb-5 p-3">
+<div class="w-75 ms-5 mb-5 p-1">
 
-    <h1 class="card w-75 ms-4 text-center mt-2">Bindings</h1>
+    <h1 class="card w-75 ms-4 mt-2 m-auto text-center p-3">Bindings</h1>
 
 
 <article class="card w-75 ms-4 mt-3 align-center">
 
-    <div class="text-center">
-        <h3>Bindings présentation</h3>
+    <div class="text-center p-3">
+        <h3 class="p-2 mt-2 mb-4">Bindings présentation</h3>
         <p>Le bindings consiste à lier des données à des éléments de l'interface utilisateur.</p>
         <p>Vous utilisez un modèle (ex:user) et vous souhaitez afficher ses informations dans un formulaire.</p>
         <p>il sera alors possible de recuperer l'objet complet ou seulement un champ spécifique.</p>
     </div>
 
-    <div class="mt-3 mb-3 w-75 m-auto">
+    <div class="mt-3 mb-3 m-auto p-3">
         <p>Il existe plusieurs types de bindings :</p>
         <ul>
             <li class="mt-2">
@@ -38,35 +38,33 @@
 
 
 <!-- Property Bindings  Exemple-->
-<article class="card w-75 ms-4 mt-3 align-center">
+<article class="card w-75 ms-4 mt-3 text-center p-3">
     <div>
-        
-        <h3 class="text-center">Exemple de Property Binding</h3>
+        <h3 class="p-2 mt-2 mb-4">Exemple de Property Binding</h3>
         <p class="mt-3">Le Property Binding permet de lier une propriété d'un élément HTML à une propriété d'un composant Angular.</p>
         <p>Exemple : <code>&lt;img [src]="sourceImg" alt="texteAlternatifImg"&gt;</code></p>
 
         <div class="card w-50 m-auto mt-3 align-center text-center">
-            <h3>{{ voyage.destination}}</h3>
-            <p>Du : {{ voyage.dateDepart.toLocaleDateString()}}</p>
-            <p>Au : {{ voyage.dateRetour.toLocaleDateString()}}</p>
-            <img src="images/beach.png" alt="plage" class="img-fluid rounded" width="300" height="200">
+            <h3 class="p-3">{{ voyage.destination}}</h3>
+            <p>Du : {{ voyage.dateDepart.toLocaleDateString()}} Au : {{ voyage.dateRetour.toLocaleDateString()}}</p>
+            <img src="images/beach.png" alt="plage" class="img-fluid rounded p-1 m-auto" width="300" height="200">
             <p>Prix : {{ voyage.prix}}€</p>
-            <button (click)="reservation()">Réserver</button>
+            <button class="btn btn-outline-dark w-50 m-auto mb-3" (click)="reservation()">Réserver</button>
         </div>
         
     </div>
 </article>
 <!-- Property Bindings  Images-->
 <div class="card w-75 ms-4 mt-3 align-center">
-    <h3 class="text-center">Exemple de Property Binding</h3>
+    <h3 class="text-center p-3">Exemple de Property Binding</h3>
     <div class=" m-auto align-center text-center">
         <div>
             <h3>Binding ts</h3>
-            <img src="images/bindings.png" alt="exemple" width="500" height="400" class="img-fluid m-auto rounded card mb-5">
+            <img src="images/bindings.png" alt="exemple" width="400" class="img-fluid m-auto rounded card mb-5">
         </div>
         <div>
             <h3>Binding HTML</h3>
-            <img src="images/bindings-html.png" alt="exemple" width="800" height="auto" class="img-fluid m-auto rounded card mb-5">
+            <img src="images/bindings-html.png" alt="exemple" width="600"  class="img-fluid m-auto rounded card mb-5">
         </div>
     </div>
 </div>
@@ -74,13 +72,12 @@
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- Bindings One-Way  Exemple-->
-<article class="w-75 ms-4 mt-3 align-center">
-    <div class="w-100 p-3 m-auto align-center">
-        <div class="card w-75 m-auto mt-3 align-center text-center">
+<article class="card w-75 ms-4 mt-5 text-center">
+    <div class="w-100 p-3 m-auto ">
             
-            <h3>Bindings One-Way</h3>
+            <h3 class="p-2 mt-2 mb-4">Bindings One-Way</h3>
             <p>Le One-Way Binding permet de lier une donnée à un élément du template, mais sans possibilité de modification.</p>
-            
+                <div class="text-start p-3">
                     <p>Exemple : </p>
                     <p> <strong>maValeurString</strong> = {{ maValeurString }}</p>
                     <p> <strong>maValeurNumber</strong> = {{ maValeurNumber }}</p>
@@ -90,14 +87,14 @@
 </article>
 <!-- Bindings One-Way  Images-->
 <div class="card m-auto ms-4 mt-1 w-75 align-center text-center">
-    <h3>Bindings One-Way</h3>
+    <h3 class="p-3">Bindings One-Way</h3>
     <div>
         <h3>Binding ts</h3>
-        <img src="images/bindings-one-way-ts.png" alt="exemple" width="600" height="auto" class="img-fluid rounded card m-auto mb-5">
+        <img src="images/bindings-one-way-ts.png" alt="exemple" width="400" height="auto" class="img-fluid rounded card m-auto mb-5">
     </div>
     <div>
         <h3>Binding HTML</h3>
-        <img src="images/bindings-one-way-html.png" alt="exemple" width="600" height="auto" class="img-fluid rounded card m-auto mb-5">
+        <img src="images/bindings-one-way-html.png" alt="exemple" width="500" height="auto" class="img-fluid rounded card m-auto mb-5">
     </div>
 </div>
 
@@ -105,33 +102,36 @@
 
 
 <!-- Bindings Two-Way  Exemple-->
-<article class="w-75 ms-4 mt-3 align-center">
-    <div class="w-100 m-auto mt-5  align-center">
-        <div class="card w-50 m-auto mt-3 align-center p-3 text-center">
-            <h3>Bindings Two-Way</h3>
+<article class="w-75 ms-4 mt-5 align-center">
+    <div class="">
+        <div class="card  mt-3  p-3 text-center">
+            <h3 class="p-2 mt-2 mb-4">Bindings Two-Way</h3>
             <p>Le Bindings Two-Way consiste a afficher une variable avec la possibilité de la modifier.</p>
 
-            <input type="text" [(ngModel)]="maValeurString" >
+            <input type="text" class="form-control w-50 m-auto text-center" [(ngModel)]="maValeurString" >
+            <p> {{ maValeurString }}</p>
             <br>
-            <input type="number" [(ngModel)]="maValeurNumber" >
+            <input type="number" class="form-control w-50 m-auto text-center" [(ngModel)]="maValeurNumber" >
+            <p>{{ maValeurNumber }}</p>
             <br>
-            <input type="checkbox" [(ngModel)]="maValeurBoolean" >
+            <p>{{ maValeurBoolean }}</p>
+            <input type="checkbox" class="form-check-input m-auto" [(ngModel)]="maValeurBoolean" >
 
         </div>
     </div>
 </article>
 <!-- Bindings Two-Way  Images-->
 <div class="card m-auto ms-4 mt-1 w-75 align-center text-center">
-    <h3>Bindings Two-Way</h3>
-    <div class="card w-75 m-auto mt-1">
+    <h3 class="p-2 mt-2 mb-4">Bindings Two-Way</h3>
+    <div class="m-auto mt-3">
         <h3>Binding ts</h3>
-        <img src="images/bindings-one-way-ts.png" alt="exemple" width="600" height="auto" class="img-fluid rounded">
+        <img src="images/bindings-one-way-ts.png" alt="exemple" width="400" height="auto" class="img-fluid rounded">
     </div>
-    <div class="card w-75 m-auto mt-1">
+    <div class="m-auto mt-3">
         <h3>Binding HTML</h3>
-        <img src="images/bindings-two-way-html.png" alt="exemple" width="600" height="auto" class="img-fluid rounded">
+        <img src="images/bindings-two-way-html.png" alt="exemple" width="400" height="auto" class="img-fluid rounded">
     </div>
-    <div class="card w-75 m-auto mt-1">
+    <div class="m-auto mt-3">
         <h3>import FormsModule </h3>
         <img src="images/bindings-two-way-import.png" alt="exemple" width="400" height="auto" class="img-fluid rounded">
     </div>
@@ -139,30 +139,28 @@
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <!-- Event Bindings  Exemple-->
-<article class="w-75 ms-4 mt-3 align-center">
-    <div class="w-75 m-auto mt-3 align-center">
-        <div class="card w-50 m-auto mt-3 align-center text-center">
-            <h3>Event Bindings</h3>
+<article class="card w-75 ms-4 mt-5 text-center p-3">
+    <div class="">
+            <h3 class="p-2 mt-2 mb-4">Event Bindings</h3>
             <p>L' Event-Bindings consiste a déclencher une action en réponse à un événement utilisateur.</p>
             
-            <input type="number" [(ngModel)]="numberEventBinding" >
+            <input type="number" class="form-control w-25 m-auto text-center" [(ngModel)]="numberEventBinding" >
             <br>
-            <button (click)="increment()">+</button>
-            <button (click)="decrement()">-</button>
-            
-        </div>
+            <button class="btn btn-sm btn-primary m-2" (click)="increment()">+</button>
+            <button class="btn btn-sm btn-danger m-2" (click)="decrement()">-</button>
+
     </div>
 </article>
 <!-- Event Bindings  images-->
-<div class="card m-auto ms-4 mt-1 w-75 align-center text-center">
+<div class="card m-auto ms-4 mt-1 w-75 text-center p-3">
     <h3>Event Bindings</h3>
-    <div class="card w-75 m-auto mt-1">
+    <div class="m-auto mt-1">
         <h3>Binding ts</h3>
-        <img src="images/event-bindings-ts.png" alt="exemple" width="300" height="auto" class="img-fluid rounded">
+        <img src="images/event-bindings-ts.png" alt="exemple" width="300"  class="img-fluid rounded">
     </div>
-    <div class="card w-75 m-auto mt-1">
+    <div class="m-auto mt-3">
         <h3>Binding HTML</h3>
-        <img src="images/event-bindings-html.png" alt="exemple" width="500" height="auto" class="img-fluid rounded">
+        <img src="images/event-bindings-html.png" alt="exemple" width="400"  class="img-fluid rounded">
     </div>
 </div>
 
@@ -171,29 +169,26 @@
 
 
 <!-- Attribute Bindings  Exemple-->
-<article class="w-75 ms-4 mt-3 align-center">
-    <div class="w-100 m-auto mt-3 align-center">
-        <div class="card w-50 m-auto mt-3 align-center text-center">
-            <h3>Attribute Bindings</h3>
+<article class="w-75 ms-4 mt-5 align-center">
+        <div class="card m-auto mt-3 align-center text-center p-3">
+            <h3 class="p-2 mt-2 mb-4">Attribute Bindings</h3>
             <p>L' Attribute-Bindings consiste a lier une propriété d'un élément DOM à une propriété d'un composant.</p>
 
             <p>{{ valeurAttributeBindings }}</p>
-            <input type="text" [(ngModel)]="valeurAttributeBindings" [disabled]="booleenAttributeBindings" >
+            <input type="text" class="form-control w-50 m-auto text-center" [(ngModel)]="valeurAttributeBindings" [disabled]="booleenAttributeBindings" >
             <br>
-            <button (click)="modifier()">{{ booleenAttributeBindings ? 'Activer' : 'Désactiver' }}</button>
-
+            <button class="btn btn-sm btn-outline-dark w-25 m-auto" (click)="modifier()">{{ booleenAttributeBindings ? 'Activer' : 'Désactiver' }}</button>
 
         </div>
-    </div>
 </article>
 <!-- Attribute Bindings  images-->
-<div class="card m-auto ms-4 mt-1 w-75 align-center text-center p-3">
-    <h3>Attribute Bindings</h3>
-    <div class="card w-75 m-auto mt-1">
+<div class="card m-auto ms-4 mt-1 w-75 align-center text-center p-3 mb-5">
+    <h2 class="p-2 mt-2 mb-4">Attribute Bindings</h2>
+    <div class="m-auto mt-1">
         <h3>Binding ts</h3>
         <img src="images/attribute-bindings-ts.png" alt="exemple" width="500" height="auto" class="img-fluid rounded">
     </div>
-    <div class="card w-75 m-auto mt-1">
+    <div class="m-auto mt-3">
         <h3>Binding HTML</h3>
         <img src="images/attribute-bindings-html.png" alt="exemple" width="600" height="auto" class="img-fluid rounded">
     </div>
