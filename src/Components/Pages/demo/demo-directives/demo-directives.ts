@@ -1,6 +1,6 @@
 import { NgIf, NgFor, NgClass, NgStyle, NgSwitch, NgSwitchCase } from '@angular/common';
 import { Component } from '@angular/core';
-import { Changecolor } from '../../../shared/directives/changecolor';
+import { Changecolor } from '../../../shared/directives/changeColor/changecolor';
 
 @Component({
   selector: 'app-demo-directives',

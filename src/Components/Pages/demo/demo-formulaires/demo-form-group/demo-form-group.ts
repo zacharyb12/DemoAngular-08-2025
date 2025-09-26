@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { simpleEmailValidator } from '../../../../shared/validators/email.validator';
 
 @Component({
   selector: 'app-demo-form-group',
@@ -22,7 +23,7 @@ export class DemoFormGroup {
     // Chaque contrôle a des validations associées
     this.formulaire = this.fb.group({
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, simpleEmailValidator()]],
       password: ['', Validators.required]
     });
   }

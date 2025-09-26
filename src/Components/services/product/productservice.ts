@@ -3,7 +3,14 @@ import { ShoppingItem } from '../../shared/Models/ShoppingItem.model';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
+  // singleton ce qui veux dire qu'une seule instance du service sera créée et partagée dans toute l'application.
   providedIn: 'root'
+  // providedIn: 'any' // une instance par module lazy loaded ce qui veux dire
+  // qu'une nouvelle instance sera créée pour chaque module qui l'importe.
+  
+  // providedIn: 'platform' // une instance par application ce qui veux dire 
+  // que si on a plusieurs applications Angular sur la même page, elles partageront la même instance du service.  
+
 })
 export class Productservice {
   listProduct : ShoppingItem[] = [
