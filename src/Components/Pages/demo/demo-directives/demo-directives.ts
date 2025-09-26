@@ -1,4 +1,4 @@
-import { NgIf, NgFor, NgClass, NgStyle, NgSwitch, NgSwitchCase } from '@angular/common';
+import { NgIf, NgFor, NgClass, NgStyle, NgSwitch, NgSwitchCase, CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Changecolor } from '../../../shared/directives/changeColor/changecolor';
 
@@ -11,7 +11,8 @@ import { Changecolor } from '../../../shared/directives/changeColor/changecolor'
     NgStyle,
     NgSwitch,
     NgSwitchCase,
-    Changecolor
+    Changecolor,
+    CommonModule
   ],
   templateUrl: './demo-directives.html',
   styleUrl: './demo-directives.css'

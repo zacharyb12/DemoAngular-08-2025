@@ -7,6 +7,10 @@ export class EmojiFormatPipe implements PipeTransform {
 
 transform(value: string): string {
   return value
+  /*
+Remplacement global : Le g assure que tous les mots "chien" sont remplacés
+Insensible à la casse : Le i permet de ne pas tenir compte de la casse
+  */
     .replace(/chien/gi, 'chien 🐶')
     .replace(/chat/gi, 'chat 🐱')
     .replace(/pizza/gi, 'pizza 🍕')
